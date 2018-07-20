@@ -13,7 +13,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
-      // isHovered: song
+      //isHovered: song
     };
 
     this.audioElement = document.createElement('audio');
@@ -46,14 +46,10 @@ class Album extends Component {
   }
 
   handleSongHover(song) {
-    //want to change the index to a play icon when hovering over a song
-    // this.setState({ isHovered === song })
-
-  }
-
-  leaveSong(song) {
-    // when i leave the hovering over
-
+    const songHover = this.state.currentSong === song;
+    if (this.state.isPlaying && songHover) {
+      this.play();
+    }
   }
 
 
@@ -77,11 +73,10 @@ class Album extends Component {
         <tbody>
           {this.state.album.songs.map( ( song, index) =>
           <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick= { () => this.handleSongClick(song)}>
-            <td>
-              <span className="playButton" onMouseEnter={this.handleSongHover(song)}>{index + 1 + '. '}
-                <span><ion-icon name="arrow-dropright-circle"></ion-icon></span>
-                <span><ion-icon name="pause"></ion-icon></span>
-              </span>
+            <td className="song-index" onMouseEnter={this.handleSongHover(song)}>
+              <span className="playButton">{index + 1 + '. '}</span>
+                <span className="ion ion-play"></span>
+                <span className="ion ion-pause"></span>
             </td>
             <td>
               { song.title }
