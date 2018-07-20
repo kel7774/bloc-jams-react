@@ -10,9 +10,46 @@ class Album extends Component {
     });
 
     this.state = {
-      album: album
+      album: album,
+      currentSong: album.songs[0],
+      isPlaying: false
     };
+
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
   }
+
+  play() {
+    this.audioElement.play();
+    this.setState({ isPlaying: true });
+  }
+
+  pause() {
+    this.audioElement.pause();
+    this.setState({ isPlaying: false });
+  }
+
+  setSong(song) {
+    this.audioElement.src = song.audioSrc;
+    this.setState({ currentSong: song });
+  }
+
+  handleSongClick(song) {
+    const isSameSong = this.state.currentSong === song;
+    if (this.state.isPlaying && isSameSong) {
+      this.pause();
+    } else {
+      if (!isSameSong) { this.setSong(song); }
+      this.play();
+    }
+  }
+
+  handleSongHover(song) {
+    //want to change the index to a play icon when hovering over a song
+    
+    console.log('changing to play button');
+  }
+
   render () {
     return (
       <section className="album">
@@ -32,12 +69,13 @@ class Album extends Component {
         </colgroup>
         <tbody>
           {this.state.album.songs.map( ( song, index) =>
-          <tr key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration}>
-            <td>{index + 1 + '. '}</td>
+          <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick= { () => this.handleSongClick(song)}>
+            <td><span className="playButton" onMouseEnter = {this.handleSongHover(song)}>{index + 1 + '. '}</span></td>
             <td>{ song.title }</td>
             <td>{ song.duration }</td>
           </tr>
         )}
+
         </tbody>
       </table>
       </section>
