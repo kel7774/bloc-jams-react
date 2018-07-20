@@ -78,7 +78,10 @@ class Album extends Component {
           {this.state.album.songs.map( ( song, index) =>
           <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick= { () => this.handleSongClick(song)}>
             <td>
-              <span className="playButton" onMouseEnter = {this.handleSongHover(song)}>{index + 1 + '. '}</span>
+              <span className="playButton" onMouseEnter={this.handleSongHover(song)}>{index + 1 + '. '}
+                <span><ion-icon name="arrow-dropright-circle"></ion-icon></span>
+                <span><ion-icon name="pause"></ion-icon></span>
+              </span>
             </td>
             <td>
               { song.title }
