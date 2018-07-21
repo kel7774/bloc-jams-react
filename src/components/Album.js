@@ -49,7 +49,6 @@ class Album extends Component {
     this.setState({ currentSong: song });
     }
 
-  }
 
 
   render () {
