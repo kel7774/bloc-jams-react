@@ -59,7 +59,9 @@ class Album extends Component {
     const newIndex = Math.max(0, currentIndex + 1);
     const newSong = this.state.album.songs[newIndex];
     this.setSong(newSong);
-    this.play();
+    if (newSong < this.state.album.songs.length) {
+      this.play();
+    }
   }
 
   handleSongHover(song) {
@@ -97,7 +99,7 @@ class Album extends Component {
         </colgroup>
         <tbody>
           {this.state.album.songs.map( ( song, index) =>
-          <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick= { () => this.handleSongClick(song)}>
+          <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick={ () => this.handleSongClick(song)}>
             <td className="song-index" onMouseEnter={ () => this.handleSongHover(song)} onMouseLeave={ () => this.handleSongHover(null)}>
                 {this.handleIcon(song, index)}
             </td>
