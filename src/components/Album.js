@@ -46,10 +46,9 @@ class Album extends Component {
   }
 
   handleSongHover(song) {
-    const songHover = this.state.currentSong === song;
-    if (this.state.isPlaying && songHover) {
-      this.play();
+    this.setState({ currentSong: song });
     }
+
   }
 
 
@@ -73,7 +72,7 @@ class Album extends Component {
         <tbody>
           {this.state.album.songs.map( ( song, index) =>
           <tr className="song" key = {index} title ={this.state.album.songs.title} duration={this.state.album.songs.duration} onClick= { () => this.handleSongClick(song)}>
-            <td className="song-index" onMouseEnter={this.handleSongHover(song)}>
+            <td className="song-index" onMouseEnter={this.handleSongHover(song)} onMouseLeave={this.handleSongHover(null)}>
               <span className="playButton">{index + 1 + '. '}</span>
                 <span className="ion ion-play"></span>
                 <span className="ion ion-pause"></span>
