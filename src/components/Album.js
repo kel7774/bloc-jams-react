@@ -98,7 +98,13 @@ class Album extends Component {
   formatTime(time) {
     var minutes = Math.floor(time / 60);
     var seconds = time - minutes * 60;
-    return minutes + ':' + seconds;
+    var songTime = minutes + ':' + seconds;
+    var stringSongTime = songTime.toString();
+    if (stringSongTime) {
+      return stringSongTime;
+    } else {
+      return "-:--";
+    }
   }
 
   handleVolumeChange(e) {
@@ -150,7 +156,7 @@ class Album extends Component {
               { song.title }
             </td>
             <td>
-              { song.duration }
+              { this.formatTime(song.duration) }
             </td>
           </tr>
         )}
@@ -168,6 +174,7 @@ class Album extends Component {
       handleNextClick={() => this.handleNextClick()}
       handleTimeChange={(e) => this.handleTimeChange(e)}
       handleVolumeChange={(e) => this.handleVolumeChange(e)}
+      formatTime={(time)=> this.formatTime(time)}
       />
       </section>
     );
