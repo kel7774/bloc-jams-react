@@ -97,20 +97,19 @@ class Album extends Component {
 
   formatTime(time) {
     var minutes = Math.floor(time / 60);
-    var seconds = time - minutes * 60;
+    var seconds = Math.floor(time % 60);
     var songTime = minutes + ':' + seconds;
-    var stringSongTime = songTime.toString();
-    if (stringSongTime) {
-      return stringSongTime;
+    if (songTime) {
+      return songTime;
     } else {
       return "-:--";
     }
   }
 
   handleVolumeChange(e) {
-    const newVolume = this.audioElement.currentVolume * e.target.value;
-    this.audioElement.currentVolume = newVolume;
-    this.setState({ currentVolume: newVolume});
+    const newVolume = e.target.value / 100;
+    this.audioElement.volume = newVolume;
+    this.setState({ currentVolume : newVolume });
   }
 
   handleSongHover(song) {
