@@ -99,12 +99,15 @@ class Album extends Component {
     var minutes = Math.floor(time / 60);
     var seconds = Math.floor(time % 60);
     var songTime = minutes + ':' + seconds;
-    if (songTime) {
-      return songTime;
-    } else {
-      return "-:--";
+    var lessThanSeconds = ":0" + seconds;
+      if (songTime) {
+        return songTime;
+      } else if (seconds <= 9){
+        return minutes + lessThanSeconds;
+      } else {
+        return "-:--";
+      }
     }
-  }
 
   handleVolumeChange(e) {
     const newVolume = e.target.value / 100;
