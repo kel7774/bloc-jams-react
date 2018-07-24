@@ -100,7 +100,7 @@ class Album extends Component {
     var seconds = Math.floor(time % 60);
     var songTime = minutes + ':' + seconds;
     var lessThanSeconds = ":0" + seconds;
-      if (songTime) {
+      if (seconds > 9) {
         return songTime;
       } else if (seconds <= 9){
         return minutes + lessThanSeconds;
