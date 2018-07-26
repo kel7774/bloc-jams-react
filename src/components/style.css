@@ -1,0 +1,31 @@
+.landing {
+  /* color: */
+}
+
+
+.hero-title {
+  text-align: center;
+  @import url('https://fonts.googleapis.com/css?family=Raleway');
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  word-spacing: 0.5em;
+  color:
+}
+
+.point {
+  display: inline-block;
+  width: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.point-title {
+  text-align: center;
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+.point-description {
+
+}
