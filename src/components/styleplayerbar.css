@@ -1,0 +1,13 @@
+button {
+  display: inline-block;
+  margin: 0;
+}
+
+#time-control {
+  padding-top: 10px;
+  margin: 0;
+}
+
+#volume-control {
+  padding-bottom: 10px;
+}
