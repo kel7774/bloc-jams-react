@@ -4,15 +4,28 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  text-align: center;
+}
+
+a {
+  font-size: 20px;
+  color: #da6d99;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+a:hover {
+  color: white;
 }
 
 header {
-  /* something */
+  display: block;
+  padding-top: 10px;
+  word-spacing: 0.5em;
+  text-align: center;
 }
 
 nav {
-  /* something */
+  display: block;
 }
 
 .logo {
@@ -21,8 +34,4 @@ nav {
   margin-right: auto;
   padding-top: 15px;
   padding-bottom: 15px;
-}
-
-.logo img {
- /* something */
 }
