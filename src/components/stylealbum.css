@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+#album-info {
+  width: 50%;
+}
+
 #album-title {
   font-size: 30px;
   letter-spacing: 0.25em;
@@ -24,11 +28,11 @@
   color: #f5e1eb;
 }
 
+
 table {
   display: inline-block;
   margin: auto;
   padding: 10px;
-  width: inherit;
 }
 
 tbody {
