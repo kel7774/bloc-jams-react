@@ -3,42 +3,43 @@ import './styleplayerbar.css';
 
 class PlayerBar extends Component {
   render() {
+    const { handlePrevClick, handleNextClick, formatTime, currentTime, duration, handleSongClick, isPlaying, handleTimeChange, handleVolumeChange, currentVolume, } = this.props
     return (
       <section className="player-bar">
         <section id="buttons">
-          <button id="previous" onClick={this.props.handlePrevClick}>
+          <button id="previous" onClick={handlePrevClick}>
             <span className="ion-skip-backward"></span>
           </button>
-          <button id="play-pause" onClick={this.props.handleSongClick}>
-            <span className={this.props.isPlaying ? 'ion-pause' : 'ion-play'}></span>
+          <button id="play-pause" onClick={handleSongClick}>
+            <span className={isPlaying ? 'ion-pause' : 'ion-play'}></span>
           </button>
-          <button id="next" onClick={this.props.handleNextClick}>
+          <button id="next" onClick={handleNextClick}>
             <span className="ion-skip-forward"></span>
           </button>
         </section>
         <section id="time-control">
-          <div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
+          <div className="current-time">{formatTime(currentTime)}</div>
           <input
             type="range"
             className="seek-bar"
-            value={(this.props.currentTime / this.props.duration) || 0}
+            value={(currentTime / duration) || 0}
             max="1"
             min="0"
             step="0.01"
-            onChange={this.props.handleTimeChange}
+            onChange={handleTimeChange}
           />
-          <div className="total-time">{this.props.formatTime(this.props.duration)}</div>
+          <div className="total-time">{formatTime(duration)}</div>
         </section>
         <section id="volume-control">
-          <div className="current-volume">{this.props.currentVolume}</div>
+          <div className="current-volume">{currentVolume}</div>
           <input
             type="range"
             className="seek-bar"
-            value={(this.props.currentVolume)}
+            value={currentVolume}
             max="100"
             min="0"
             step="0.01"
-            onChange={this.props.handleVolumeChange}
+            onChange={handleVolumeChange}
           />
         </section>
       </section>

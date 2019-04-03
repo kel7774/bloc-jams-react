@@ -4,10 +4,7 @@ import albumData from './../data/albums';
 import './stylelibrary.css';
 
 class Library extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { albums: albumData };
-  }
+  state = { albums: albumData }
   render () {
     return (
       <section className='library'>
