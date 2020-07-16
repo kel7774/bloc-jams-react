@@ -1,12 +1,16 @@
-###Bloc Jams
+#### Bloc Jams
+
 
 A Spotify clone project assigned to me when I completed the Bloc.io apprenticeship in June 2018.
 
-I have since worked on some refactoring to stay up-to-date with React's newest features. I have eliminated the use of classes for React components, and instead have replaced them with functional components with the use of hooks. This can be seen when comparing several branches with the master.
 
-To start this project
+Since I completed this project in 2018, React has vastly changed by moving more towards functional componenents with the use of hooks. As a challenge to myself, I have made it a personal goal to refactor this project from its original structure by using React's updates.
 
-`npm start` and it should launch in your browser as `localhost:3000`
 
-Styled using `styled-components`
-Audio player by `react-audio-player`
+Use `npm start` to launch in your browser as `localhost:3000`
+
+
+Styled using [`styled-components`](https://styled-components.com/)
+
+
+Audio player by [`react-audio-player`](https://github.com/justinmc/react-audio-player#readme)
