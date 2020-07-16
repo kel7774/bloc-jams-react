@@ -1,9 +1,10 @@
 import React from "react";
+import { LandingSection, SellingPointsSection } from "../styles/Landing";
 
 const Landing = () => (
-  <section className="landing">
+  <LandingSection className="landing-section">
     <h1 className="hero-title">Turn the music up!</h1>
-    <section className="selling-points">
+    <SellingPointsSection>
       <div className="point">
         <h2 className="point-title">Choose your music</h2>
         <p className="point-description">
@@ -24,8 +25,8 @@ const Landing = () => (
           all mobile platforms.
         </p>
       </div>
-    </section>
-  </section>
+    </SellingPointsSection>
+  </LandingSection>
 );
 
 export default Landing;

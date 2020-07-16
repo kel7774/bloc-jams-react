@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import albumData from "../data/albums";
 import PlayerBar from "./PlayerBar";
+import { AlbumInfoSection, TracksDiv } from "../styles/Album";
 
 const Album = (props) => {
   const albums = albumData.find((album) => {
@@ -21,41 +22,31 @@ const Album = (props) => {
     setCurrentSong(newSong);
   };
   return (
-    <section id="album-info">
+    <AlbumInfoSection id="album-info">
       <img id="album-cover-art" src={albums.albumCover} alt={albums.title} />
       <div className="album-details">
         <h1 id="album-title">{albums.title}</h1>
         <h2 className="artist">{albums.artist}</h2>
         <div id="release-info">{albums.releaseInfo}</div>
       </div>
-      <table id="song-list">
-        <colgroup>
-          <col id="song-number-column" />
-          <col id="song-title-column" />
-          <col id="song-duration-column" />
-        </colgroup>
-        <tbody>
-          {albums.songs.map((song, index) => (
-            <tr
-              key={index}
-              title={albums.songs.title}
-              duration={albums.songs.duration}
-            >
-              <td>{index + 1 + "."}</td>
-              <td>{song.title}</td>
-              <td>{song.duration}</td>
-              <td>
-                <ReactAudioPlayer src={song.audioSrc} controls />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {albums.songs.map((song, index) => (
+        <TracksDiv
+          key={index}
+          title={albums.songs.title}
+          duration={albums.songs.duration}
+        >
+          <div>{index + 1 + "."}</div>
+          <div>{song.title}</div>
+          <div>
+            <ReactAudioPlayer src={song.audioSrc} controls />
+          </div>
+        </TracksDiv>
+      ))}
       <PlayerBar
         handlePrevClick={handlePrevClick}
         handleNextClick={handleNextClick}
       />
-    </section>
+    </AlbumInfoSection>
   );
 };
 
