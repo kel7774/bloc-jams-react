@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import albumData from "../data/albums";
 import PlayerBar from "./PlayerBar";
@@ -21,25 +21,23 @@ const Album = (props) => {
     const newSong = albums.songs[newIndex];
     setCurrentSong(newSong);
   };
+
+  useEffect(() => {}, []);
   return (
     <AlbumInfoSection id="album-info">
-      <img id="album-cover-art" src={albums.albumCover} alt={albums.title} />
+      <img src={albums.albumCover} alt={albums.title} />
       <div className="album-details">
         <h1 id="album-title">{albums.title}</h1>
-        <h2 className="artist">{albums.artist}</h2>
+        <h3 className="artist">{albums.artist}</h3>
         <div id="release-info">{albums.releaseInfo}</div>
       </div>
       {albums.songs.map((song, index) => (
-        <TracksDiv
-          key={index}
-          title={albums.songs.title}
-          duration={albums.songs.duration}
-        >
-          <div>{index + 1 + "."}</div>
-          <div>{song.title}</div>
-          <div>
-            <ReactAudioPlayer src={song.audioSrc} controls />
+        <TracksDiv key={index} title={albums.songs.title}>
+          <div className="number-title">
+            <div>{index + 1 + ". "}</div>
+            <div>{song.title}</div>
           </div>
+          <ReactAudioPlayer src={song.audioSrc} controls />
         </TracksDiv>
       ))}
       <PlayerBar

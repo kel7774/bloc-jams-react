@@ -1,15 +1,16 @@
 import React from "react";
+import { Button } from "../styles/PlayerBar";
 
 const PlayerBar = ({ handlePrevClick, handleNextClick }) => {
   return (
     <section className="player-bar">
       <section className="buttons">
-        <button id="previous" onClick={handlePrevClick}>
+        <Button id="previous" onClick={handlePrevClick}>
           Prev
-        </button>
-        <button id="next" onClick={handleNextClick}>
+        </Button>
+        <Button id="next" onClick={handleNextClick}>
           Next
-        </button>
+        </Button>
       </section>
     </section>
   );
